@@ -1,0 +1,12 @@
+# {{ ansible_managed }}
+
+/var/log/aerospike/aerospike.log {
+    daily
+    rotate 90
+    dateext
+    compress
+    olddir /var/log/aerospike/
+    postrotate
+        /bin/kill -HUP `cat /var/run/aerospike/asd.pid`
+    endscript
+}

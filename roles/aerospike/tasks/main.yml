@@ -1,0 +1,43 @@
+---
+
+- name: AEROSPIKE | Download sources
+  unarchive:
+    src: "{{ aerospike_repository_url }}"
+    dest: /tmp
+    owner: root
+    group: root
+    remote_src: yes
+
+- name: AEROSPIKE | Installation
+  shell: ./asinstall
+  args:
+    chdir: "/tmp/aerospike-server-community-{{ aerospike_version }}-ubuntu{{ os_ubuntu_version }}.04"
+
+- name: AEROSPIKE | Configuration
+  template:
+    src: "etc/aerospike/{{ item }}.j2"
+    dest: "/etc/aerospike/{{ item }}"
+    owner: root
+    group: root
+    mode: 0644
+  with_items:
+    - aerospike.conf
+    - astools.conf
+  notify: Restart aerospike
+  tags: config
+
+- name: AEROSPIKE | Create log directory
+  file:
+    state: directory
+    path: /var/log/aerospike
+    owner: root
+    group: root
+    mode: 0755
+
+- name: AEROSPIKE | Configure logs rotation
+  template:
+    src: "etc/logrotate.d/aerospike.j2"
+    dest: "/etc/logrotate.d/aerospike"
+    owner: root
+    group: root
+    mode: 0644

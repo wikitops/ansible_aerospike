@@ -1,0 +1,9 @@
+[aerospike01]
+10.0.3.51
+
+[aerospike02]
+10.0.3.52
+
+[aerospike:children]
+aerospike01
+aerospike02

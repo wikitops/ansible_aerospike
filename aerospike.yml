@@ -1,0 +1,7 @@
+---
+
+- hosts: aerospike
+  remote_user: vagrant
+  become: yes
+  roles:
+    - aerospike
