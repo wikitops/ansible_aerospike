@@ -59,7 +59,16 @@ ansible-playbook aerospike.yml
 If everything run has expected, you should connect on any nodes and get the cluster status with this command :
 
 ```
-asadm
+$ asadm
+Seed:        [('10.0.3.51', 18000, 'default')]
+Config_file: /home/vagrant/.aerospike/astools.conf, /etc/aerospike/astools.conf
+Aerospike Interactive Shell, version 0.1.17
+
+Found 2 nodes
+Online:  10.0.3.52:18000, 10.0.3.51:18000
+
+Admin>
+
 ```
 
 #### Destroy
