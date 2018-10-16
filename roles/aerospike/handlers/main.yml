@@ -1,7 +1,6 @@
 ---
 
 - name: Restart aerospike
-  service:
+  systemd:
     name: aerospike
     state: restarted
-    enabled: yes

@@ -1,17 +1,21 @@
 ---
 
+- name: AEROSPIKE | Gather OS specific variables
+  include_vars: "{{ ansible_distribution }}.yml"
+
 - name: AEROSPIKE | Download sources
   unarchive:
-    src: "{{ aerospike_repository_url }}"
+    src: "{{ aerospike_source_url }}/{{ aerospike_os }}{{ aerospike_os_major_version }}"
     dest: /tmp
     owner: root
     group: root
     remote_src: yes
+    creates: "/tmp/aerospike-server-community-{{ aerospike_version }}-{{ aerospike_os }}{{ aerospike_os_major_version }}{{ aerospike_os_minor_version }}"
 
 - name: AEROSPIKE | Installation
   shell: ./asinstall
   args:
-    chdir: "/tmp/aerospike-server-community-{{ aerospike_version }}-ubuntu{{ os_ubuntu_version }}.04"
+    chdir: "/tmp/aerospike-server-community-{{ aerospike_version }}-{{ aerospike_os }}{{ aerospike_os_major_version }}{{ aerospike_os_minor_version }}"
 
 - name: AEROSPIKE | Configuration
   template:

@@ -1,14 +1,27 @@
 ---
 
-os_ubuntu_version: 16
+###
+# AEROSPIKE
+###
 
-aerospike_version: 4.0.0.4
-aerospike_repository_url: "http://aerospike.com/download/server/{{ aerospike_version }}/artifact/ubuntu{{ os_ubuntu_version }}"
+# Version
+aerospike_version: 4.3.0.10
+
+# Source
+aerospike_source_url: "http://aerospike.com/download/server/{{ aerospike_version }}/artifact"
+
+# Cluster
 aerospike_cluster_name: default
+aerospike_cluster_user: admin
+aerospike_cluster_password: admin
+
+# Ports
 aerospike_port_service: 18000
 aerospike_port_fabric: 18001
 aerospike_port_heartbeat: 18002
 aerospike_port_info: 18003
+
+# Namespaces
 aerospike_namespaces:
     - name: default
       memory_size: 2G

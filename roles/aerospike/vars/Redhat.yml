@@ -1,0 +1,10 @@
+---
+
+###
+# AEROSPIKE REDHAT
+###
+
+# OS Specification
+aerospike_os: redhat
+aerospike_os_major_version: "7"
+aerospike_os_minor_version: ""

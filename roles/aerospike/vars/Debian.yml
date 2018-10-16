@@ -1,0 +1,10 @@
+---
+
+###
+# AEROSPIKE DEBIAN
+###
+
+# OS Specification
+aerospike_os: debian
+aerospike_os_major_version: "9"
+aerospike_os_minor_version: ""

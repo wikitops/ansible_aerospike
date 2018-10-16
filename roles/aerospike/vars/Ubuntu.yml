@@ -1,0 +1,10 @@
+---
+
+###
+# AEROSPIKE UBUNTU
+###
+
+# OS Specification
+aerospike_os: ubuntu
+aerospike_os_major_version: "18"
+aerospike_os_minor_version: ".04"
